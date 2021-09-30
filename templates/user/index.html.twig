@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0"> User</h4>
+                            <p class="card-category"> List Employees</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="count">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group no-border">
+                                                    <input type="text" value="" class="form-control"
+                                                           placeholder="Total: {{ pagination.getTotalItemCount }}"
+                                                           readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {{ form_start(form, {'method': 'GET'}) }}
+                                                <div class="input-group no-border">
+                                                    {{ form_widget(form.value) }}
+                                                    {{ form_row(form.search) }}
+                                                    <a href="{{ path('user_index') }}" class="btn btn-success btn-round">Clear</a>
+                                                </div>
+                                                {{ form_end(form) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-hover">
+                                    <thead class="">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Email</th>
+                                        <th>Roles</th>
+                                        <th>Password</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in pagination %}
+                                        <tr>
+                                            <td>{{ user.id }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                                            <td>{{ user.password }}</td>
+                                            <td>
+                                                <a href="{{ path('user_edit', {'id': user.id}) }}">Edit</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="navigation">
+                                    {{ knp_pagination_render(pagination) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('user_new') }}" class="btn btn-success btn-round">Create new</a>
+{% endblock %}

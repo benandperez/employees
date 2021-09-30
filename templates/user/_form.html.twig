@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.email) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.password) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            {{ form_row(form.roles) }}
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary pull-right">{{ button_label|default('Save') }}</button>
+<a href="{{ path('user_index') }}" class="btn btn-success btn-round" class="btn btn-success btn-round">back to list</a>
+{{ form_end(form) }}
+
+
+
+

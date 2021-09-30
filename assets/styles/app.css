@@ -1,0 +1,92 @@
+@import "~datatables/media/css/jquery.dataTables.min.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: 'Open Sans', sans-serif;*/
+/*    line-height: 1;*/
+/*    background-color: #FFFFFF;*/
+/*}*/
+
+header {
+    background-color: #FFFFFF;
+    position: fixed;
+    z-index: 6;
+    width: 100%;
+    top: 0;
+    border-bottom: 2px solid black;
+}
+
+.logo_menu {
+    padding: 1rem 2rem 1rem 0.5rem;
+    height: 25px;
+}
+
+.header-image {
+    background-color: #FFFFFF;
+    width: 280px;
+    padding-top: 20px;
+    /*margin-left: 20px;*/
+    padding-bottom: 20px;
+}
+
+.header-menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-menu ul {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.header-menu ul li {
+    width: 110px;
+    list-style-type: none;
+}
+
+.header-menu ul li a {
+    color: #1D478C;
+    font-weight: 600;
+}
+
+.header {
+    background-color: #FFFFFF;
+    display: flex;
+}
+
+.content {
+    margin-top: 100px;
+    padding-top: 20px;
+    background-color: #FFFFFF;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.map {
+    width: 100%;
+    height: calc(100vh - 66px);
+    margin-top: 10px;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo_menu {
+        padding: 1rem 2rem 1rem 0.5rem;
+        height: 25px;
+        width: 150%;
+    }
+}
+
+h3 {
+    color: #1D478C!important;
+    margin-bottom: 30px;
+}

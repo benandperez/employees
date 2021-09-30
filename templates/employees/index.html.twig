@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employees index{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0"> Employees</h4>
+                            <p class="card-category"> List Employees</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="count">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group no-border">
+                                                    <input type="text" value="" class="form-control"
+                                                           placeholder="Total: {{ pagination.getTotalItemCount }}"
+                                                           readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                {{ form_start(form, {'method': 'GET'}) }}
+                                                    <div class="input-group no-border">
+                                                        {{ form_widget(form.value) }}
+                                                        {{ form_row(form.search) }}
+                                                        <a href="{{ path('employees_index') }}" class="btn btn-success btn-round">Clear</a>
+                                                    </div>
+                                                {{ form_end(form) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-hover">
+                                    <thead class="">
+                                    <th>Id</th>
+                                    <th>FirstNames</th>
+                                    <th>LastNames</th>
+                                    <th>Document</th>
+                                    <th>Actions</th>
+                                    </thead>
+                                    <tbody>
+                                    {% for employee in pagination %}
+                                        <tr>
+                                            <td>{{ employee.id }}</td>
+                                            <td>{{ employee.firstNames }}</td>
+                                            <td>{{ employee.lastNames }}</td>
+                                            <td>{{ employee.document }}</td>
+                                            <td>
+                                                <a href="{{ path('employees_edit', {'id': employee.id}) }}">Edit</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="navigation">
+                                    {{ knp_pagination_render(pagination) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('employees_new') }}" class="btn btn-success btn-round">Create new</a>
+{% endblock %}
+
+{% block myScripts %}
+    <script>
+    </script>
+
+{% endblock %}

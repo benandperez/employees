@@ -1,0 +1,20 @@
+{% block header %}
+    <header>
+        <div class="header">
+
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="{{ path('employees_index') }}">Employees</a></li>
+                    <li><a href="{{ path('area_index') }}">Area</a></li>
+                    <li><a href="{{ path('sub_area_index') }}">Subareas</a></li>
+                    <li><a href="{{ path('document_type_index') }}">Document Type</a></li>
+                </ul>
+            </nav>
+            <div class="header-image">
+                <a href="{{ path('employees_index') }}" class="logo_menu">
+{#                    <img src="{{ asset('img/Logo.png') }}" class="img-fluid" width="200" height="40"/>#}
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}

@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            {{ form_row(form.description) }}
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary pull-right">{{ button_label|default('Save') }}</button>
+<a href="{{ path('area_index') }}" class="btn btn-success btn-round">back to list</a>
+{{ form_end(form) }}

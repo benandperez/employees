@@ -1,0 +1,40 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.firstNames) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.lastNames) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            {{ form_row(form.document) }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.documentType) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            {{ form_row(form.area) }}
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary pull-right">{{ button_label|default('Save') }}</button>
+<a href="{{ path('employees_index') }}" class="btn btn-success btn-round" class="btn btn-success btn-round">back to list</a>
+<div class="clearfix"></div>
+{{ form_end(form) }}
+
+
+
+

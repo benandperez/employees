@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SubArea{% endblock %}
+
+{% block body %}
+    <h1>SubArea</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sub_area.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ sub_area.description }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ sub_area.createdAt ? sub_area.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ sub_area.updatedAt ? sub_area.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sub_area_index') }}">back to list</a>
+
+    <a href="{{ path('sub_area_edit', {'id': sub_area.id}) }}">edit</a>
+
+    {{ include('sub_area/_delete_form.html.twig') }}
+{% endblock %}
