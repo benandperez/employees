@@ -44,6 +44,8 @@
                                     <th>FirstNames</th>
                                     <th>LastNames</th>
                                     <th>Document</th>
+                                    <th>Area</th>
+                                    <th>Subarea</th>
                                     <th>Actions</th>
                                     </thead>
                                     <tbody>
@@ -53,8 +55,12 @@
                                             <td>{{ employee.firstNames }}</td>
                                             <td>{{ employee.lastNames }}</td>
                                             <td>{{ employee.document }}</td>
+                                            <td>{{ employee.subArea.area.description }}</td>
+                                            <td>{{ employee.subArea.description }}</td>
                                             <td>
-                                                <a href="{{ path('employees_edit', {'id': employee.id}) }}">Edit</a>
+                                                <a href="{{ path('employees_edit', {'id': employee.id}) }}">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     {% else %}

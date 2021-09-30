@@ -32,9 +32,15 @@ class SubArea
      */
     private $area;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Employees::class, mappedBy="subArea")
+     */
+    private $employees;
+
 
     public function __construct()
     {
+        $this->employees = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -62,6 +68,36 @@ class SubArea
     public function setArea(?Area $area): self
     {
         $this->area = $area;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Employees[]
+     */
+    public function getEmployees(): Collection
+    {
+        return $this->employees;
+    }
+
+    public function addEmployee(Employees $employee): self
+    {
+        if (!$this->employees->contains($employee)) {
+            $this->employees[] = $employee;
+            $employee->setSubArea($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmployee(Employees $employee): self
+    {
+        if ($this->employees->removeElement($employee)) {
+            // set the owning side to null (unless already changed)
+            if ($employee->getSubArea() === $this) {
+                $employee->setSubArea(null);
+            }
+        }
 
         return $this;
     }

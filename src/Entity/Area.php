@@ -28,11 +28,6 @@ class Area
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Employees::class, mappedBy="area")
-     */
-    private $employees;
-
-    /**
      * @ORM\OneToMany(targetEntity=SubArea::class, mappedBy="area")
      */
     private $subAreas;
@@ -40,7 +35,6 @@ class Area
 
     public function __construct()
     {
-        $this->employees = new ArrayCollection();
         $this->subAreas = new ArrayCollection();
     }
 
@@ -61,35 +55,6 @@ class Area
         return $this;
     }
 
-    /**
-     * @return Collection|Employees[]
-     */
-    public function getEmployees(): Collection
-    {
-        return $this->employees;
-    }
-
-    public function addEmployee(Employees $employee): self
-    {
-        if (!$this->employees->contains($employee)) {
-            $this->employees[] = $employee;
-            $employee->setArea($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEmployee(Employees $employee): self
-    {
-        if ($this->employees->removeElement($employee)) {
-            // set the owning side to null (unless already changed)
-            if ($employee->getArea() === $this) {
-                $employee->setArea(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|SubArea[]

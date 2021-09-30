@@ -253,7 +253,7 @@ class AppFixtures extends Fixture
         $employee->setFirstNames('Benjamin');
         $employee->setLastNames('Perez');
         $employee->setDocument('1143327');
-        $employee->setArea($area);
+        $employee->setSubArea($subarea);
         $employee->setDocumentType($documentType);
         $employee->setCreatedAt(new \DateTime());
         $employee->setUpdatedAt(new \DateTime());
@@ -264,6 +264,13 @@ class AppFixtures extends Fixture
         $user->setPassword($this->passwordHasher->hashPassword($user,'password'));
         $user->setRoles(["ROLE_ADMIN"]);
         $manager->persist($user);
+
+        $user2 = new User();
+        $user2->setEmail('bperez2@hotmail.com');
+        $user2->setPassword($this->passwordHasher->hashPassword($user2,'password'));
+        $user2->setRoles(["ROLE_USER"]);
+        $manager->persist($user2);
+
 
         $manager->flush();
     }

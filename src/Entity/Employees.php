@@ -41,9 +41,9 @@ class Employees
     private $documentType;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Area::class, inversedBy="employees")
+     * @ORM\ManyToOne(targetEntity=SubArea::class, inversedBy="employees")
      */
-    private $area;
+    private $subArea;
 
     public function getId(): ?int
     {
@@ -103,14 +103,14 @@ class Employees
         return $this;
     }
 
-    public function getArea(): ?Area
+    public function getSubArea(): ?SubArea
     {
-        return $this->area;
+        return $this->subArea;
     }
 
-    public function setArea(?Area $area): self
+    public function setSubArea(?SubArea $subArea): self
     {
-        $this->area = $area;
+        $this->subArea = $subArea;
 
         return $this;
     }

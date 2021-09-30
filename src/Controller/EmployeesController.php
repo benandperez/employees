@@ -6,8 +6,10 @@ use App\Entity\Employees;
 use App\Form\EmployeesSearchType;
 use App\Form\EmployeesType;
 use App\Repository\EmployeesRepository;
+use App\Repository\SubAreaRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -106,5 +108,21 @@ class EmployeesController extends AbstractController
         }
 
         return $this->redirectToRoute('employees_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/get/sub/area", name="getSubarea", methods={"GET","POST"})
+     */
+    public function getSubArea(Request $request, SubAreaRepository $subAreaRepository)
+    {
+        $output = [];
+        $subAreas = $subAreaRepository->findBy(['area' => $request->request->get('data')]);
+        foreach ($subAreas as $subArea){
+
+            $output[]=[$subArea->getId(),$subArea->getDescription()];
+        }
+
+        return new JsonResponse($output);
+
     }
 }

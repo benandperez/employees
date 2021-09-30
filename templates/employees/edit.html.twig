@@ -19,3 +19,33 @@
         </div>
     </div>
 {% endblock %}
+
+{% block myScripts %}
+    <script>
+        $(document).ready(function () {
+            var area = '{{ employee.subArea.area.id }}';
+            var subArea = '{{ employee.subArea.id }}';
+            $("#areaSelect option[value='" + area + "']").attr("selected",true);
+
+            let data = {'data' : $("#areaSelect option:selected").val()};
+            request = $.ajax({
+                type: "POST",
+                url: '{{ path('getSubarea') }}',
+                data: data ,
+            });
+
+            request.done(function (response, textStatus, jqXHR){
+                $("#employees_subArea option").remove(); //removes the option with value = 2
+                $('#employees_subArea').val('').trigger('chosen:updated');
+                $('#employees_subArea').append('<option value="" selected="selected"> Select </option>');
+                $.each(response, function (index, value) {
+                    $('#employees_subArea').append('<option value="' + value[0]+ '">' + value[1] + '</option>');
+                });
+                $("#employees_subArea option[value='" + subArea + "']").attr("selected",true);
+            });
+        });
+
+    </script>
+
+
+{% endblock %}

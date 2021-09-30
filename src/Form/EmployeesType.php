@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Area;
 use App\Entity\DocumentType;
 use App\Entity\Employees;
+use App\Entity\SubArea;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -39,8 +40,8 @@ class EmployeesType extends AbstractType
                 'placeholder' => ' Select ',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('area', EntityType::class, [
-                'class' => Area::class,
+            ->add('subArea', EntityType::class, [
+                'class' => SubArea::class,
                 'choice_label' => 'description',
                 'placeholder' => ' Select ',
                 'attr' => ['class' => 'form-control']

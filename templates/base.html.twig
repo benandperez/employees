@@ -16,6 +16,7 @@
     <!--     Fonts and icons     -->
 
     {% block stylesheets %}
+{#        {{ encore_entry_link_tags('app') }}#}
         {# <link rel="stylesheet" type="text/css" #}
         {# href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/> #}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -23,7 +24,13 @@
         <link href="{{ asset('css/material-dashboard.css') }}?v=2.1.2" rel="stylesheet"/>
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="{{ asset('demo/demo.css') }}" rel="stylesheet"/>
+
     {% endblock %}
+
+    {% block stylesheetsLogin %}
+
+    {% endblock %}
+
 
 </head>
 
@@ -96,7 +103,8 @@
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="">{{ app.user.email }}</i>
+                                    {{ app.user.email }}
+                                    <i class="fa fa-user"></i>
                                     <p class="d-lg-none d-md-block">
                                         Account
                                     </p>
