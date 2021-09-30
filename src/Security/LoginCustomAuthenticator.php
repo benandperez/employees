@@ -51,7 +51,7 @@ class LoginCustomAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('employees_index'));
+        return new RedirectResponse($this->urlGenerator->generate('dash_board'));
 //        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
