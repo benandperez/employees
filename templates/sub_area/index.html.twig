@@ -56,7 +56,9 @@
                                             <td>{{ sub_area.area.description }}</td>
                                             <td>{{ sub_area.createdAt ? sub_area.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                                             <td>
-                                                <a href="{{ path('sub_area_edit', {'id': sub_area.id}) }}">edit</a>
+                                                <a href="{{ path('sub_area_edit', {'id': sub_area.id}) }}">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     {% else %}
