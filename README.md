@@ -7,6 +7,13 @@ Luego de Descargar el proyecto, ejecutar los siguientes comandos en la consola, 
 5) yarn encore dev, si lo tiene el .env en produccion, ejecutar yarn encore prod
 6) php bin/console doctrine:fixtures:load (para crear data en las tablas)
 
+Para ingresar tenemos estos 2 usuarios, 1 con role admin y otro con user
+User: bperez@hotmail.com
+Password: password
+
+User: bperez2@hotmail.com
+Password: password
+
 Puedes ejecutar estos comandos tambien para la migracion de la data
 
     1) php bin/console make:migration php
