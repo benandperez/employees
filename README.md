@@ -8,6 +8,7 @@ Luego de Descargar el proyecto, ejecutar los siguientes comandos en la consola, 
 6) php bin/console doctrine:fixtures:load (para crear data en las tablas)
 
 Para ingresar tenemos estos 2 usuarios, 1 con role admin y otro con user
+
 User: bperez@hotmail.com
 Password: password
 
